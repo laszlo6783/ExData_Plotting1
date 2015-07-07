@@ -26,7 +26,9 @@ myData<-rbind(myD1,myD2)
 rm("myD1")
 rm("myD2")
 
-png('plot1.png',width=480, height=480)
-hist(myData$Global_active_power,breaks=12,col="red",xlab="Global Active Power (kilowatts)",
-        main="Global Active Power")
+# transform the date in date format
+myData$Date<-as.Date(myData$Date)
+
+png('plot2.png',width=480, height=480)
+plot(paste0(myData$Date,myData$Time),myData$Global_active_power,ylab="Global Active Power (kilowatts)")
 dev.off()
