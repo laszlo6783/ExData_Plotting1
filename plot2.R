@@ -27,8 +27,9 @@ rm("myD1")
 rm("myD2")
 
 # transform the date in date format
-myData$Date<-as.Date(myData$Date)
+myData$Date<-strptime(paste(myData$Date,myData$Time),"%Y-%m-%d %H:%M:%S")
 
 png('plot2.png',width=480, height=480)
-plot(paste0(myData$Date,myData$Time),myData$Global_active_power,ylab="Global Active Power (kilowatts)")
+plot(myData$Date,myData$Global_active_power,ylab="Global Active Power (kilowatts)",
+     xlab="",pch="|")
 dev.off()
