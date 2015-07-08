@@ -29,7 +29,10 @@ rm("myD2")
 # transform the date in date format
 myData$Date<-strptime(paste(myData$Date,myData$Time),"%Y-%m-%d %H:%M:%S")
 
-png('plot2.png',width=480, height=480)
-plot(myData$Date,myData$Global_active_power,ylab="Global Active Power (kilowatts)",
-     xlab="",type="l")
+png('plot3.png',width=480, height=480)
+plot(myData$Date,myData$Sub_metering_1,type="l",col="gray",ylab="Energy sub metering",
+     xlab="")
+points(myData$Date,myData$Sub_metering_2,col="red",type="l")
+points(myData$Date,myData$Sub_metering_3,col="blue",type="l")
+legend("topright",pch=c("-","-","-"),col=c("gray","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 dev.off()
