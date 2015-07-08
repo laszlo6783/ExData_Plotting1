@@ -31,7 +31,7 @@ myData$Date<-strptime(paste(myData$Date,myData$Time),"%Y-%m-%d %H:%M:%S")
 
 png('plot4.png',width=480, height=480)
 par(mfcol=c(2,2))
-plot(myData$Date,myData$Global_active_power,ylab="Global Active Power (kilowatts)",
+plot(myData$Date,myData$Global_active_power,ylab="Global Active Power",
      xlab="",type="l")
 plot(myData$Date,myData$Sub_metering_1,type="l",col="gray",ylab="Energy sub metering",
      xlab="")
